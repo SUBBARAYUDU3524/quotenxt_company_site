@@ -1,0 +1,153 @@
+'use client';
+
+import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+import { useState } from 'react';
+import mission from "../../../../public/assets/mission.jpg";
+
+const TABS = [
+  { key: 'mission', label: 'Our Mission' },
+  { key: 'vision', label: 'Our Vision' },
+  { key: 'history', label: 'Our History' },
+] as const;
+
+const content = {
+  mission: {
+    title: 'Our Mission',
+    text: 'To empower businesses with innovative technology solutions that drive growth, efficiency, and competitive advantage. We are committed to delivering exceptional value through cutting-edge digital transformation services tailored to each client\'s unique needs.',
+    highlights: [
+      'Deliver transformative technology solutions',
+      'Foster long-term client partnerships',
+      'Drive measurable business outcomes',
+    ],
+  },
+  vision: {
+    title: 'Our Vision',
+    text: 'To be the most trusted global partner for digital innovation, recognized for our technical excellence and unwavering commitment to client success. We envision a future where technology seamlessly enhances every aspect of business operations.',
+    highlights: [
+      'Global leader in digital innovation',
+      'Pioneer of emerging technologies',
+      'Standard-bearer for ethical tech practices',
+    ],
+  },
+  history: {
+    title: 'Our History',
+    text: "Founded in 2015, we started as a small team of passionate technologists. Through dedication and client-focused innovation, we've grown into an award-winning firm serving Fortune 500 companies and startups alike, while maintaining our commitment to quality and personal service.",
+    highlights: [
+      'Established in 2015',
+      '100+ successful projects delivered',
+      'Recognized industry excellence',
+    ],
+  },
+};
+
+export default function OurMission() {
+  const [activeTab, setActiveTab] = useState<'mission' | 'vision' | 'history'>('mission');
+
+  return (
+    <section className="py-16 md:py-28 bg-gradient-to-b from-gray-50 to-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-20 ">
+        {/* Two Column Section */}
+        <div className="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-800 p-20 rounded-4xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          {/* Left Column - Text */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, type: 'spring' }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white text-left md:text-center drop-shadow-lg tracking-tight">
+              <span className="bg-white text-blue-700 px-3 py-2 rounded-lg shadow-sm inline-block">QUOTE</span>NXT
+            </h2>
+            <h3 className="text-2xl md:text-3xl font-bold text-white text-left md:text-center tracking-wide">
+              BEST SOLUTIONS
+            </h3>
+            <p className="text-lg text-blue-100 md:text-center">
+              We combine strategic thinking with technical excellence to deliver solutions that propel your business forward.
+            </p>
+          </motion.div>
+
+          {/* Right Column - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, type: 'spring' }}
+            viewport={{ once: true }}
+            className="relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-white"
+          >
+            <Image
+              src={mission}
+              alt="Our Mission"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-800/50 via-transparent to-blue-500/50 pointer-events-none" />
+          </motion.div>
+        </div>
+
+        {/* Tabbed Content Section */}
+        <div className="max-w-4xl mx-auto">
+          {/* Tab Buttons */}
+          <nav className="flex flex-wrap gap-3 mb-10 justify-center">
+            {TABS.map((tab) => (
+              <motion.button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                whileHover={{ scale: 1.08, boxShadow: '0 8px 32px rgba(59,130,246,0.12)' }}
+                whileTap={{ scale: 0.97 }}
+                className={`px-7 py-3 rounded-full font-semibold text-base transition-all duration-300 border-2
+                  ${
+                    activeTab === tab.key
+                      ? 'bg-blue-700 text-white border-blue-300 shadow-lg'
+                      : 'bg-white text-blue-700 border-white hover:bg-blue-50'
+                  }
+                `}
+                aria-selected={activeTab === tab.key}
+              >
+                {tab.label}
+              </motion.button>
+            ))}
+          </nav>
+
+          {/* Tab Content */}
+          <div className="bg-white rounded-2xl shadow-2xl p-8 border border-blue-100">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -24 }}
+                transition={{ duration: 0.35, type: 'spring' }}
+              >
+                <h3 className="text-2xl font-extrabold text-blue-900 mb-5 tracking-wide">
+                  {content[activeTab].title}
+                </h3>
+                <p className="text-gray-700 mb-7 text-base md:text-lg leading-relaxed">{content[activeTab].text}</p>
+                <ul className="space-y-4">
+                  {content[activeTab].highlights.map((item, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, x: -16 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.08 }}
+                      className="flex items-start"
+                    >
+                      <div className="flex-shrink-0 mt-1 mr-4">
+                        <div className="w-3 h-3 bg-blue-600 rounded-full shadow" />
+                      </div>
+                      <span className="text-blue-800 font-medium">{item}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+  );
+}
