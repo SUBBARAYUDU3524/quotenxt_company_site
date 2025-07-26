@@ -2,38 +2,37 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
-
-// Carousel images (replace with your actual image paths)
-const carouselImages = [
-  '/assets/carousel-1.jpg',
-  '/assets/carousel-2.jpg',
-  '/assets/carousel-3.jpg',
-];
+import { useEffect, useState } from 'react';
 
 const HomeHeader = () => {
+  const carouselImages = [
+    '/assets/services.jpg',
+    '/assets/carousel-1.jpg',
+    '/assets/carousel-2.jpg',
+    '/assets/carousel-3.jpg',
+  ];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Auto-rotate carousel
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % carouselImages.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [carouselImages.length]);
 
   return (
-    <section className="relative bg-gradient-to-b from-gray-50 to-white py-16 md:py-24 lg:pt-35 px-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text Content */}
+    <section className="relative w-full bg-gradient-to-r from-gray-900 to-blue-950 overflow-hidden">
+    
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 md:py-32">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 xl:gap-20">
+          {/* Left: Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="space-y-8"
+            className="w-full lg:w-1/2 space-y-6 md:space-y-8 text-white"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
               Transforming{' '}
               <span className="relative inline-block">
                 <span className="relative z-10">Ideas</span>
@@ -47,12 +46,12 @@ const HomeHeader = () => {
               Into Reality
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-600 max-w-lg">
+            <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
               We deliver innovative solutions tailored to your business needs with
               cutting-edge technology and creative expertise.
             </p>
 
-            <ul className="space-y-3">
+            <ul className="space-y-3 md:space-y-4">
               {[
                 'Industry-leading expertise',
                 'Customized solutions',
@@ -67,7 +66,7 @@ const HomeHeader = () => {
                   className="flex items-start"
                 >
                   <svg
-                    className="h-5 w-5 text-blue-500 mt-0.5 mr-3 flex-shrink-0"
+                    className="h-5 w-5 text-blue-400 mt-0.5 mr-3 flex-shrink-0"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -79,7 +78,7 @@ const HomeHeader = () => {
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span className="text-gray-700 text-base md:text-lg">
+                  <span className="text-gray-200 text-base md:text-lg">
                     {item}
                   </span>
                 </motion.li>
@@ -90,11 +89,11 @@ const HomeHeader = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="pt-4"
+              className="pt-2 md:pt-4"
             >
-              <button className="relative group inline-flex items-center justify-center px-8 py-3 overflow-hidden font-medium text-white bg-gradient-to-r from-blue-600 to-blue-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <span className="relative z-10">Target With Us</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+              <button className="relative group inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-3.5 overflow-hidden font-medium text-white bg-gradient-to-r from-blue-500 to-blue-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <span className="relative z-10">Start With Us</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
                 <span className="absolute right-0 w-8 h-8 -mr-4 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-0 translate-x-20 transition-all duration-300">
                   <svg
                     className="w-full h-full"
@@ -115,53 +114,48 @@ const HomeHeader = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Image Carousel */}
+          {/* Right: Featured Image */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="relative h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-2xl"
+            transition={{ duration: 0.8 }}
+            className="w-full lg:w-1/2 h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[550px] relative rounded-xl overflow-hidden shadow-2xl"
           >
-            {/* Carousel Images */}
-            {carouselImages.map((src, index) => (
+            {carouselImages.map((image, index) => (
               <motion.div
-                key={src}
+                key={index}
                 initial={{ opacity: 0 }}
-                animate={{
+                animate={{ 
                   opacity: index === currentImageIndex ? 1 : 0,
-                  scale: index === currentImageIndex ? 1 : 1.05,
+                  transition: { duration: 0.8 }
                 }}
-                transition={{ duration: 0.8, ease: 'easeInOut' }}
-                className="absolute inset-0"
+                exit={{ opacity: 0 }}
+                className="absolute inset-0 w-full h-full"
               >
                 <Image
-                  src={src}
-                  alt={`Carousel image ${index + 1}`}
+                  src={image}
+                  alt={`Business solution ${index + 1}`}
                   fill
                   className="object-cover"
                   priority={index === 0}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                 />
+                {/* Overlay to match the gradient theme */}
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-900/10 to-blue-900/20"></div>
               </motion.div>
             ))}
-
+            
             {/* Carousel Indicators */}
-            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
               {carouselImages.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentImageIndex
-                      ? 'bg-white w-6'
-                      : 'bg-white/50 hover:bg-white/70'
-                  }`}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentImageIndex ? 'bg-blue-400 w-6' : 'bg-white/50 hover:bg-white/70'}`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
             </div>
-
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/10 to-transparent" />
           </motion.div>
         </div>
       </div>

@@ -1,306 +1,223 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
+import { FaQuoteLeft } from 'react-icons/fa';
 
 const testimonials = [
   {
-    name: 'Priya Sharma',
+    id: 1,
+    name: 'Emma Johnson',
     role: 'CEO, TechNova',
     image: 'https://randomuser.me/api/portraits/women/44.jpg',
-    quote: 'QUOTE NXT exceeded our expectations! Their dedication and technical expertise helped us transform our business digitally.',
-    rating: 5,
-    highlightColor: '#6366f1'
+    quote: 'This platform revolutionized our workflow. The intuitive design and powerful features helped us increase productivity by 200%.',
+    rating: 5
   },
   {
-    name: 'Ravi Patel',
-    role: 'Head of Marketing, BrightEdge',
+    id: 2,
+    name: 'James Rodriguez',
+    role: 'Marketing Director',
     image: 'https://randomuser.me/api/portraits/men/32.jpg',
-    quote: 'Working with QUOTE NXT was a game-changer. Their team delivered creative solutions with impressive speed and quality.',
-    rating: 4,
-    highlightColor: '#10b981'
+    quote: 'The best investment we made this year. Customer support is exceptional and the platform scales beautifully.',
+    rating: 5
   },
   {
-    name: 'Jessica Lee',
-    role: 'Founder, EduSpark',
+    id: 3,
+    name: 'Sophia Chen',
+    role: 'Product Manager',
     image: 'https://randomuser.me/api/portraits/women/65.jpg',
-    quote: 'The professionalism and support from QUOTE NXT have been outstanding. We highly recommend their services to anyone looking for digital transformation.',
-    rating: 5,
-    highlightColor: '#f59e0b'
-  },
-  {
-    name: 'Samuel Kim',
-    role: 'CTO, FinNext',
-    image: 'https://randomuser.me/api/portraits/men/19.jpg',
-    quote: 'Their consulting and technical skills are top-notch. QUOTE NXT truly cares about client success and delivers on their promises.',
-    rating: 5,
-    highlightColor: '#3b82f6'
+    quote: 'From onboarding to daily use, every interaction is seamless. Our team adopted it instantly with zero learning curve.',
+    rating: 4
   },
 ];
 
-const TestimonialCard = ({ testimonial, active, direction }: { testimonial: typeof testimonials[0], active: boolean, direction: number }) => {
-  const x = useMotionValue(0);
-  const scale = useTransform(x, [-200, 0, 200], [0.9, 1, 0.9]);
-  const opacity = useTransform(x, [-200, 0, 200], [0.7, 1, 0.7]);
-  const rotateY = useTransform(x, [-200, 0, 200], [10, 0, -10]);
-
-  return (
-    <motion.div
-      drag="x"
-      dragConstraints={{ left: 0, right: 0 }}
-      style={{ x, scale, opacity, rotateY }}
-      whileHover={{ scale: 1.02 }}
-      className={`relative w-full max-w-2xl rounded-3xl p-6 sm:p-8 shadow-lg ${active ? 'z-10' : 'z-0'} bg-white`}
-      initial={{ x: direction > 0 ? 500 : -500, opacity: 0.5, scale: 0.95 }}
-      animate={{ 
-        x: 0, 
-        opacity: 1,
-        scale: 1,
-        transition: { 
-          type: 'spring', 
-          stiffness: 200,
-          damping: 25,
-          mass: 0.5,
-          velocity: 0.5
-        } 
-      }}
-      exit={{ 
-        x: direction > 0 ? -500 : 500, 
-        opacity: 0.5,
-        scale: 0.95,
-        transition: { 
-          type: 'spring',
-          stiffness: 200,
-          damping: 25,
-          mass: 0.5
-        }
-      }}
-    >
-      <div 
-        className="absolute inset-0 rounded-3xl opacity-10"
-        style={{ 
-          background: `linear-gradient(135deg, ${testimonial.highlightColor} 0%, #ffffff 100%)`
-        }}
-      />
-      <div className="relative z-10">
-        <motion.div 
-          className="flex items-center justify-center mb-4 sm:mb-6"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          {[...Array(5)].map((_, i) => (
-            <motion.svg
-              key={i}
-              className={`w-5 h-5 sm:w-6 sm:h-6 ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-200'}`}
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.1 + i * 0.05, type: 'spring' }}
-            >
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </motion.svg>
-          ))}
-        </motion.div>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 0.5, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          <FaQuoteLeft className="text-xl sm:text-2xl mb-3 sm:mb-4" style={{ color: testimonial.highlightColor }} />
-        </motion.div>
-        
-        <motion.p 
-          className="text-base sm:text-lg md:text-xl font-medium text-center mb-6 sm:mb-8 text-gray-800"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25 }}
-        >
-          {testimonial.quote}
-        </motion.p>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 0.5, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          <FaQuoteRight className="text-xl sm:text-2xl ml-auto" style={{ color: testimonial.highlightColor }} />
-        </motion.div>
-        
-        <motion.div 
-          className="flex items-center justify-center mt-6 sm:mt-8"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35 }}
-        >
-          <div className="relative">
-            <motion.img
-              src={testimonial.image}
-              alt={testimonial.name}
-              className="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-4 border-white shadow-md object-cover"
-              style={{ borderColor: `${testimonial.highlightColor}40` }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: 'spring' }}
-            />
-          </div>
-          <div className="ml-3 sm:ml-4 text-left">
-            <h4 className="text-sm sm:text-lg font-bold text-gray-900">{testimonial.name}</h4>
-            <p className="text-xs sm:text-sm text-gray-600">{testimonial.role}</p>
-          </div>
-        </motion.div>
-      </div>
-    </motion.div>
-  );
-};
-
-export default function TestimonialShowcase() {
-  const [[index, direction], setIndex] = useState([0, 0]);
+export default function AutoRotatingTestimonials() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState<'left'|'right'>('right');
   const [isHovered, setIsHovered] = useState(false);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<NodeJS.Timeout>();
 
-  const navigate = (newDirection: number) => {
-    setIndex(prev => {
-      const newIndex = (prev[0] + newDirection + testimonials.length) % testimonials.length;
-      return [newIndex, newDirection];
-    });
+  // Auto-rotation logic
+  const startRotation = () => {
+    intervalRef.current = setInterval(() => {
+      setDirection('right');
+      setCurrentIndex(prev => (prev + 1) % testimonials.length);
+    }, 5000); // Rotate every 5 seconds
   };
 
-  const nextTestimonial = () => navigate(1);
-  const prevTestimonial = () => navigate(-1);
-
-  const goToTestimonial = (i: number) => {
-    setIndex([i, i > index ? 1 : -1]);
-  };
-
-  useEffect(() => {
-    if (!isHovered) {
-      timerRef.current = setTimeout(nextTestimonial, 6000);
+  // Clean up interval
+  const stopRotation = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
     }
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, [index, isHovered]);
+  };
+
+  // Initialize and clean up
+  useEffect(() => {
+    startRotation();
+    return () => stopRotation();
+  }, []);
+
+  // Pause on hover
+  useEffect(() => {
+    if (isHovered) {
+      stopRotation();
+    } else {
+      startRotation();
+    }
+  }, [isHovered]);
+
+  const navigate = (newIndex: number) => {
+    setDirection(newIndex > currentIndex ? 'right' : 'left');
+    setCurrentIndex(newIndex);
+    resetTimer(); // Reset timer on manual navigation
+  };
+
+  const next = () => navigate((currentIndex + 1) % testimonials.length);
+  const prev = () => navigate((currentIndex - 1 + testimonials.length) % testimonials.length);
+
+  const resetTimer = () => {
+    stopRotation();
+    startRotation();
+  };
+
+  // Animation variants
+  const variants = {
+    enter: (direction: string) => ({
+      x: direction === 'right' ? 300 : -300,
+      opacity: 0,
+      scale: 0.9
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: { 
+        type: 'spring', 
+        stiffness: 300,
+        damping: 30
+      }
+    },
+    exit: (direction: string) => ({
+      x: direction === 'right' ? -300 : 300,
+      opacity: 0,
+      scale: 0.9,
+      transition: { duration: 0.3 }
+    })
+  };
 
   return (
-    <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-white">
+    <section className="relative pt-8 pb-20 bg-white overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-blue-50 blur-3xl opacity-30"></div>
+        <div className="absolute -left-20 -bottom-20 w-96 h-96 rounded-full bg-indigo-50 blur-3xl opacity-30"></div>
+      </div>
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
+        {/* Section header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, type: 'spring' }}
-          className="text-center mb-10 sm:mb-16"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-700 mb-4 sm:mb-6">
-            Voices of Success
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+              Trusted by Innovators
+            </span>
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
-            Discover how QUOTE NXT is revolutionizing businesses across the globe
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Join thousands of satisfied customers transforming their businesses
           </p>
         </motion.div>
 
+        {/* Testimonial carousel */}
         <div 
-          className="relative"
+          className="relative max-w-4xl mx-auto"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Main testimonial carousel */}
-          <div className="relative h-[400px] sm:h-[450px] md:h-[500px] flex items-center justify-center">
-            <AnimatePresence custom={direction} initial={false}>
-              <TestimonialCard 
-                key={index}
-                testimonial={testimonials[index]} 
-                active={true}
-                direction={direction}
-              />
-            </AnimatePresence>
-          </div>
+          <AnimatePresence custom={direction} mode="wait">
+            <motion.div
+              key={testimonials[currentIndex].id}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              className="bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-gray-100"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-6 text-indigo-500">
+                  <FaQuoteLeft className="text-3xl opacity-30" />
+                </div>
+
+                <div className="flex mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <svg
+                      key={i}
+                      className={`w-6 h-6 ${i < testimonials[currentIndex].rating ? 'text-amber-400' : 'text-gray-200'}`}
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+
+                <blockquote className="text-xl md:text-2xl font-medium text-gray-800 mb-8 max-w-3xl">
+                  "{testimonials[currentIndex].quote}"
+                </blockquote>
+
+                <div className="flex items-center">
+                  <img 
+                    src={testimonials[currentIndex].image} 
+                    alt={testimonials[currentIndex].name}
+                    className="w-14 h-14 rounded-full object-cover border-4 border-white shadow-md"
+                  />
+                  <div className="ml-4 text-left">
+                    <p className="text-lg font-semibold text-gray-900">{testimonials[currentIndex].name}</p>
+                    <p className="text-gray-600">{testimonials[currentIndex].role}</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
 
           {/* Navigation controls */}
-          <div className="flex items-center justify-center mt-8 sm:mt-12 gap-4">
-            <motion.button
-              onClick={prevTestimonial}
-              className="p-2 sm:p-3 rounded-full bg-white hover:bg-gray-50 text-gray-700 transition-all duration-300 shadow-md hover:shadow-lg border border-gray-200 flex items-center justify-center"
+          <div className="flex justify-between mt-10">
+            <button
+              onClick={prev}
+              className="p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:bg-gray-50"
               aria-label="Previous testimonial"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: 'spring', stiffness: 400 }}
             >
-              <FiChevronLeft className="w-5 h-5" />
-            </motion.button>
+              <FiChevronLeft className="w-5 h-5 text-gray-700" />
+            </button>
             
-            <div className="flex items-center gap-2 mx-4">
+            <div className="flex items-center gap-2">
               {testimonials.map((_, i) => (
-                <motion.button
+                <button
                   key={i}
-                  onClick={() => goToTestimonial(i)}
-                  className={`h-3 rounded-full ${index === i ? 'bg-indigo-600' : 'bg-gray-300'}`}
+                  onClick={() => navigate(i)}
+                  className={`w-3 h-3 rounded-full transition-all ${i === currentIndex ? 'bg-indigo-600 w-6' : 'bg-gray-300'}`}
                   aria-label={`Go to testimonial ${i + 1}`}
-                  whileHover={{ scale: 1.2 }}
-                  animate={{ 
-                    width: index === i ? 24 : 12,
-                    backgroundColor: index === i ? '#4f46e5' : '#e5e7eb'
-                  }}
-                  transition={{ type: 'spring', stiffness: 400 }}
                 />
               ))}
             </div>
             
-            <motion.button
-              onClick={nextTestimonial}
-              className="p-2 sm:p-3 rounded-full bg-white hover:bg-gray-50 text-gray-700 transition-all duration-300 shadow-md hover:shadow-lg border border-gray-200 flex items-center justify-center"
+            <button
+              onClick={next}
+              className="p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:bg-gray-50"
               aria-label="Next testimonial"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: 'spring', stiffness: 400 }}
             >
-              <FiChevronRight className="w-5 h-5" />
-            </motion.button>
+              <FiChevronRight className="w-5 h-5 text-gray-700" />
+            </button>
           </div>
         </div>
-
-        {/* Floating testimonials in background - Desktop only */}
-        <div className="hidden lg:block">
-          {testimonials.map((testimonial, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ 
-                opacity: index === i ? 0.5 : 0.1,
-                y: 0,
-                scale: index === i ? 1 : 0.8
-              }}
-              transition={{ duration: 0.5, type: 'spring' }}
-              className={`absolute ${i === 0 ? 'left-10 top-1/4' : ''} ${i === 1 ? 'right-20 top-1/3' : ''} ${i === 2 ? 'left-32 bottom-1/4' : ''} ${i === 3 ? 'right-40 bottom-1/3' : ''} w-40 p-4 rounded-lg shadow-md bg-white bg-opacity-70 backdrop-blur-sm border border-gray-100`}
-            >
-              <p className="text-xs italic text-gray-700 line-clamp-3">"{testimonial.quote}"</p>
-              <p className="text-xs font-semibold text-gray-800 mt-2">{testimonial.name}</p>
-            </motion.div>
-          ))}
-        </div>
       </div>
-
-      {/* Animated decorative elements */}
-      <motion.div 
-        animate={{
-          rotate: 360,
-          transition: { duration: 60, repeat: Infinity, ease: "linear" }
-        }}
-        className="absolute -left-40 -bottom-40 w-64 sm:w-80 h-64 sm:h-80 rounded-full opacity-5"
-        style={{ background: 'conic-gradient(from 0deg, #6366f1, #3b82f6, #10b981, #f59e0b, #6366f1)' }}
-      />
-      <motion.div 
-        animate={{
-          rotate: -360,
-          transition: { duration: 45, repeat: Infinity, ease: "linear" }
-        }}
-        className="absolute -right-20 -top-20 w-48 sm:w-64 h-48 sm:h-64 rounded-full opacity-5"
-        style={{ background: 'conic-gradient(from 180deg, #3b82f6, #10b981, #f59e0b, #6366f1, #3b82f6)' }}
-      />
     </section>
   );
 }

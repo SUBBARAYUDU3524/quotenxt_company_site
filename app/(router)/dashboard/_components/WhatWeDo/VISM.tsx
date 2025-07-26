@@ -65,7 +65,7 @@ const VISM = () => {
 
   return (
     <div className=" px-0  pb-8 bg-white  lg:px-20">
-    <div className="relative py-16 px-4 sm:px-6 lg:px-20 bg-gradient-to-br from-blue-50 to-purple-100 rounded-4xl">
+    <div className="relative py-10 px-4 sm:px-6 lg:px-20 bg-gradient-to-br from-blue-50 to-purple-100 rounded-4xl">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
@@ -118,14 +118,14 @@ const VISM = () => {
             <div className="flex justify-center mb-8">
             <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           </div>
-          <Image
+          {/* <Image
                           src={approach}
                           alt="Mobile Apps Diagram"
                           width={1200}
                           height={600}
                           layout="responsive"
                           className="object-contain"
-                        />
+                        /> */}
         
         </div>
 

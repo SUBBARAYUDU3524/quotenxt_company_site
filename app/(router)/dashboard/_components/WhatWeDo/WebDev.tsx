@@ -7,7 +7,7 @@ const WebDevelopmentServices = () => {
 
   const services = [
     {
-      title: "Web Portals Development",
+      title: "Web Portals ",
       icon: "🌐",
       shortDesc: "Custom portals for customers, partners, and communities that aggregate data from multiple sources...",
       fullDesc: "QuoteNXT works with web portals for different audiences: customers, business partners, ecommerce users, patients, vendors, and interest-based communities. Our web portals automatically aggregate data from corporate systems and become a source of up-to-date information and help for users. We create intuitive interfaces that simplify complex data interactions.",
@@ -63,10 +63,10 @@ const WebDevelopmentServices = () => {
         <meta name="description" content="Comprehensive white-themed web development solutions for businesses" />
       </Head>
     <div className="bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 ">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-5xl md:text-5xl font-bold text-gray-900 mb-6">
             Professional <span className="text-blue-600">Web Development</span> Services
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -75,24 +75,24 @@ const WebDevelopmentServices = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {services.map((service, index) => (
-            <div 
-              key={index}
-              className="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 cursor-pointer"
-              onClick={() => setActiveModal(index)}
-            >
-              <div className="p-6">
-                <div className="text-4xl mb-4 text-blue-600">{service.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-4">
-                  {service.shortDesc}
-                  <span className="text-blue-500 font-medium block mt-2">Read more →</span>
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+  {services.map((service, index) => (
+    <div 
+      key={index}
+      className="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 cursor-pointer h-full flex flex-col"
+      onClick={() => setActiveModal(index)}
+    >
+      <div className="p-6 flex flex-col flex-grow">
+        <div className="text-4xl mb-4 text-blue-600">{service.icon}</div>
+        <h3 className="text-xl font-semibold text-gray-800 mb-3">{service.title}</h3>
+        <p className="text-gray-600 mb-4 flex-grow">
+          {service.shortDesc}
+        </p>
+        <span className="text-blue-500 font-medium mt-auto">Read more →</span>
+      </div>
+    </div>
+  ))}
+</div>
 
         {/* Modal */}
      {activeModal !== null && (

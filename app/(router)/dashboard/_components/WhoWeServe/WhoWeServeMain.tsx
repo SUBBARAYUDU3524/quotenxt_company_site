@@ -24,28 +24,28 @@ const WhoWeServeMain = (): ReactElement => {
       description: "We deliver better care to patients along with digital workflows for clinical teams",
       image: Healthcare,
       position: "left",
-      color: "from-blue-50 to-cyan-50"
+      color: "from-blue-300 to-cyan-300"
     },
     {
       title: "Manufacturing",
       description: "We get truly connected operations to set a new standard for manufacturing",
       image: Manufacture,
       position: "right",
-      color: "from-purple-50 to-indigo-50"
+      color: "from-purple-300 to-indigo-300"
     },
     {
       title: "BFSI",
       description: "We deliver seamless experiences to customers and agents with compliance",
       image: BFSI,
       position: "left",
-      color: "from-green-50 to-teal-50"
+      color: "from-green-300 to-teal-300"
     },
     {
       title: "Retail",
       description: "We enhance online and in-store customer experience with digitized & automated workflows",
       image: Retail,
       position: "right",
-      color: "from-amber-50 to-orange-50"
+      color: "from-amber-200 to-orange-200"
     }
   ];
 

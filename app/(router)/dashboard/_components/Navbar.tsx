@@ -22,7 +22,7 @@ const navLinkVariants = {
   animate: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.07, type: 'spring', stiffness: 80 },
+    transition: { delay: i * 0.07, type: 'spring', stiffness: 100 },
   }),
 };
 
@@ -46,39 +46,43 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full top-0 z-50 bg-white ${scrolled ? 'shadow-lg' : 'shadow-sm'}`}
+      className={`fixed w-full top-0 z-50 bg-white backdrop-blur-sm bg-opacity-90 ${scrolled ? 'shadow-md' : ''}`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
-          {/* Logo with subtle shine effect */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+        <div className="flex justify-between items-center h-20 ">
+          {/* Premium Logo with subtle effects */}
           <motion.div
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             className="flex-shrink-0 flex items-center"
           >
-            <Link href="/" aria-label="Home" className="flex items-center group">
-              <div className="relative overflow-hidden rounded-lg">
+            <Link 
+              href="/" 
+              aria-label="Home" 
+              className="flex items-center group relative"
+            >
+              <div className="relative h-42 w-47">
                 <Image
                   src="/assets/logo.jpg"
-                  alt="Logo"
-                  width={190}
-                  height={190}
-                  className=""
+                  alt="Company Logo"
+                  fill
+                  className="object-contain object-left"
                   priority
+                  sizes="(max-width: 768px) 100px, 192px"
                 />
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100"
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100"
                   initial={{ x: -100 }}
                   whileHover={{ x: 100 }}
-                  transition={{ duration: 0.8, ease: 'easeInOut' }}
+                  transition={{ duration: 1.2, ease: 'easeInOut' }}
                 />
               </div>
             </Link>
           </motion.div>
 
-          {/* Desktop Navigation - Premium Black Text Links */}
+          {/* Desktop Navigation - Premium Links */}
           <motion.ul
-            className="hidden md:flex items-center gap-1"
+            className="hidden md:flex items-center space-x-1"
             initial="initial"
             animate="animate"
           >
@@ -93,30 +97,35 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.path}
-                    className={`group flex items-center px-4 py-2 font-medium text-black transition-all duration-300 relative overflow-hidden
-                      ${isActive ? 'text-black font-semibold' : 'hover:text-black/80'}
+                    className={`group flex items-center px-4 py-2 font-medium text-gray-800 transition-all duration-300 relative
+                      ${isActive ? 'text-gray-900 font-semibold' : 'hover:text-gray-900'}
                     `}
                   >
-                    <span className="relative z-10">{link.name}</span>
+                    <span className="relative z-10 flex items-center">
+                      {link.name}
+                      {isActive && (
+                        <motion.span
+                          layoutId="activePill"
+                          className="absolute -bottom-1 left-0 w-full h-0.5 bg-gray-900 rounded-full"
+                          transition={{ type: 'spring', bounce: 0.25, duration: 0.5 }}
+                        />
+                      )}
+                    </span>
                     
-                    {/* Animated underline effect */}
-                    {isActive ? (
+                    {/* Hover background effect */}
+                    {!isActive && (
                       <motion.span
-                        layoutId="navUnderline"
-                        className="absolute left-0 bottom-0 w-full h-0.5 bg-black rounded-full"
-                        transition={{ type: 'spring', bounce: 0.25, duration: 0.5 }}
-                      />
-                    ) : (
-                      <motion.span
-                        className="absolute left-1/2 bottom-0 w-0 h-0.5 bg-black rounded-full transform -translate-x-1/2 group-hover:w-3/4"
-                        transition={{ duration: 0.3, ease: 'easeOut' }}
+                        className="absolute inset-0 bg-gray-100 rounded-lg opacity-0 group-hover:opacity-100 -z-10"
+                        transition={{ duration: 0.3 }}
+                        layoutId="hoverBg"
                       />
                     )}
                     
-                    {/* Hover background effect */}
+                    {/* Subtle hover scale effect */}
                     <motion.span
-                      className="absolute inset-0 bg-black/5 rounded-lg opacity-0 group-hover:opacity-100"
-                      transition={{ duration: 0.3 }}
+                      className="absolute inset-0"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                     />
                   </Link>
                 </motion.li>
@@ -128,14 +137,18 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <motion.button
               onClick={toggleMenu}
-              whileTap={{ scale: 0.9 }}
-              className="inline-flex items-center justify-center p-2 rounded-lg bg-black/5 hover:bg-black/10 focus:outline-none transition-colors"
+              whileTap={{ scale: 0.92 }}
+              className="inline-flex items-center justify-center p-2 rounded-lg focus:outline-none transition-all"
               aria-label="Toggle menu"
+              style={{
+                background: 'linear-gradient(145deg, #f9f9f9, #ffffff)',
+                boxShadow: '3px 3px 6px #e8e8e8, -3px -3px 6px #ffffff'
+              }}
             >
               {isOpen ? (
-                <FiX className="h-6 w-6 text-black" />
+                <FiX className="h-6 w-6 text-gray-700" />
               ) : (
-                <FiMenu className="h-6 w-6 text-black" />
+                <FiMenu className="h-6 w-6 text-gray-700" />
               )}
             </motion.button>
           </div>
@@ -151,76 +164,89 @@ export default function Navbar() {
             height: 'auto',
             opacity: 1,
             transition: { 
-              height: { duration: 0.3 },
-              opacity: { delay: 0.1, duration: 0.2 }
+              height: { type: 'spring', stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 }
             }
           },
           closed: { 
             height: 0,
             opacity: 0,
             transition: { 
-              opacity: { duration: 0.1 },
-              height: { delay: 0.1, duration: 0.2 }
+              height: { type: 'spring', stiffness: 300, damping: 30 },
+              opacity: { duration: 0.1 }
             }
           }
         }}
-        className="md:hidden bg-white shadow-lg overflow-hidden"
+        className="md:hidden bg-white shadow-xl rounded-b-lg overflow-hidden"
+        style={{
+          boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)'
+        }}
       >
-        {isOpen && (
-          <motion.div 
-            className="px-4 py-3 space-y-2"
-            initial="closed"
-            animate="open"
-            variants={{
-              open: {
-                transition: { staggerChildren: 0.05, delayChildren: 0.1 }
-              },
-              closed: {
-                transition: { staggerChildren: 0.02, staggerDirection: -1 }
-              }
-            }}
-          >
-            {navLinks.map((link, i) => {
-              const isActive = pathname === link.path;
-              return (
-                <motion.div
-                  key={link.path}
-                  variants={{
-                    open: { 
-                      opacity: 1,
-                      y: 0,
-                      transition: { type: 'spring', stiffness: 300, damping: 24 }
-                    },
-                    closed: { 
-                      opacity: 0,
-                      y: 20,
-                      transition: { duration: 0.2 }
-                    }
-                  }}
+        <motion.div 
+          className="px-4 py-3 space-y-1"
+          initial="closed"
+          animate={isOpen ? "open" : "closed"}
+          variants={{
+            open: {
+              transition: { staggerChildren: 0.05, delayChildren: 0.15 }
+            },
+            closed: {
+              transition: { staggerChildren: 0.02, staggerDirection: -1 }
+            }
+          }}
+        >
+          {navLinks.map((link, i) => {
+            const isActive = pathname === link.path;
+            return (
+              <motion.div
+                key={link.path}
+                variants={{
+                  open: { 
+                    opacity: 1,
+                    y: 0,
+                    transition: { type: 'spring', stiffness: 300, damping: 24 }
+                  },
+                  closed: { 
+                    opacity: 0,
+                    y: 10,
+                    transition: { duration: 0.15 }
+                  }
+                }}
+              >
+                <Link
+                  href={link.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`block px-4 py-3 rounded-lg font-medium transition-all duration-200 relative overflow-hidden
+                    ${isActive ? 'bg-gray-100 text-gray-900 font-semibold' : 'text-gray-700 hover:bg-gray-50'}
+                  `}
                 >
-                  <Link
-                    href={link.path}
-                    onClick={() => setIsOpen(false)}
-                    className={`block px-4 py-3 rounded-lg font-medium text-black transition-all duration-200
-                      ${isActive ? 'bg-black/10 font-semibold' : 'hover:bg-black/5'}
-                    `}
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                    className="flex items-center"
                   >
-                    <div className="flex items-center">
-                      <span>{link.name}</span>
-                      {isActive && (
-                        <motion.div
-                          layoutId="mobileActiveIndicator"
-                          className="ml-2 w-1.5 h-1.5 bg-black rounded-full"
-                          transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                        />
-                      )}
-                    </div>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        )}
+                    <span>{link.name}</span>
+                    {isActive && (
+                      <motion.div
+                        layoutId="mobileActivePill"
+                        className="ml-2 w-2 h-2 bg-gray-900 rounded-full"
+                        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                      />
+                    )}
+                  </motion.div>
+                  {!isActive && (
+                    <motion.div
+                      className="absolute left-0 bottom-0 h-0.5 bg-gray-200 w-full"
+                      initial={{ scaleX: 0 }}
+                      whileHover={{ scaleX: 1, originX: 0 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </Link>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </motion.div>
     </motion.nav>
   );

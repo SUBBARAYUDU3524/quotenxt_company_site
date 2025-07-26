@@ -51,7 +51,7 @@ const CultureSection = () => {
   ]
 
   return (
-    <section className="py-20 lg:py-28 bg-white">
+    <section className="py-10 lg:py-13 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-20">
         {/* Section Header with Floating Animation */}
         <motion.div
@@ -121,7 +121,7 @@ const CultureSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-20"
+          className="text-center mt-15"
         >
           <motion.button
             whileHover={{ scale: 1.05 }}

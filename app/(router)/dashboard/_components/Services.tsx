@@ -1,12 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FiCode, FiUsers, FiCloud, FiTrendingUp } from 'react-icons/fi';
+import { FiCode, FiUsers, FiCloud, FiTrendingUp, FiArrowRight } from 'react-icons/fi';
 
 const Services = () => {
   const services = [
     {
-      title: 'IT CONSULTING',
+      title: 'TECHNOLOGY CONSULTING',
       icon: <FiCode className="w-8 h-8" />,
       items: [
         'Custom application development',
@@ -41,14 +41,15 @@ const Services = () => {
       items: [
         'Lead Generation',
         'Inside Sales Training',
-        'Fast ROI'
+        'Fast ROI',
+        'Data-Driven Approach'
       ],
       color: 'from-orange-500 to-orange-700'
     }
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-10 md:py-14 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -94,19 +95,7 @@ const Services = () => {
                         transition={{ delay: 0.2 + i * 0.1 }}
                         className="flex items-start"
                       >
-                        <svg
-                          className="flex-shrink-0 w-5 h-5 mt-0.5 mr-3 text-blue-500"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
+                        <FiArrowRight className="flex-shrink-0 w-5 h-5 mt-0.5 mr-3 text-blue-500" />
                         <span className="text-gray-700">{item}</span>
                       </motion.li>
                     ))}

@@ -81,7 +81,7 @@ const ITConsulting = () => {
   };
 
   return (
-    <div className="bg-white py-16 px-4 sm:px-6 lg:px-20">
+    <div className="bg-white py-10 px-4 sm:px-6 lg:px-20">
       <div className="max-w-7xl mx-auto">
         {/* IT Consulting Header */}
         <motion.div 

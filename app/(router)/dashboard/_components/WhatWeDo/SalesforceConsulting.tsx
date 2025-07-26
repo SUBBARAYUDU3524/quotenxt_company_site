@@ -54,7 +54,7 @@ const SalesforceConsulting = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden py-16 md:py-24 bg-white lg:px-20">
+    <section className="relative overflow-hidden py-10 md:py-8 bg-white lg:px-20">
       {/* Floating Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         {[...Array(12)].map((_, i) => (

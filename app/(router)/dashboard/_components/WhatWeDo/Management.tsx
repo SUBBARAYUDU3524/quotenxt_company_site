@@ -37,11 +37,11 @@ const Management = () => {
 
   return (
     <div className="bg-white">
-      <div className="max-w-screen-xl mx-auto py-16 px-4 sm:px-6 lg:px-20">
+      <div className="max-w-screen-xl mx-auto py-10 px-4 sm:px-6 lg:px-20">
         {/* Workforce Management Section */}
         <div className="mb-24">
-          <h2 className="text-4xl font-bold mb-12 text-center text-gray-800 flex items-center justify-center gap-4">
-            <FaUsers className="text-blue-600" size={40} />
+          <h2 className="text-5xl font-bold mb-12 text-center text-gray-800 flex items-center justify-center gap-4">
+            <FaUsers className="text-blue-600" size={50} />
             Workforce Management
           </h2>
           
@@ -183,11 +183,11 @@ const Management = () => {
                     Accessed through browsers, they provide app-like experiences with offline functionality and 
                     push notifications.
                   </p>
-                  <div className="mt-6">
+                  {/* <div className="mt-6">
                     <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-600 bg-blue-50 rounded-full group-hover:bg-blue-100 transition-colors duration-300">
                       Web Technologies
                     </span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -210,14 +210,14 @@ const Management = () => {
                     Native apps are platform-specific applications built with languages like Swift for iOS and Kotlin for Android. 
                     They deliver superior performance and full access to device capabilities.
                   </p>
-                  <div className="mt-6 flex gap-2">
+                  {/* <div className="mt-6 flex gap-2">
                     <span className="inline-block px-3 py-1 text-xs font-semibold text-green-600 bg-green-50 rounded-full group-hover:bg-green-100 transition-colors duration-300">
                       iOS
                     </span>
                     <span className="inline-block px-3 py-1 text-xs font-semibold text-green-600 bg-green-50 rounded-full group-hover:bg-green-100 transition-colors duration-300">
                       Android
                     </span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -237,11 +237,11 @@ const Management = () => {
                     Hybrid apps blend web and native technologies, using HTML, CSS, and JavaScript wrapped in a native container. 
                     This approach allows a single codebase to run on multiple platforms.
                   </p>
-                  <div className="mt-6">
+                  {/* <div className="mt-6">
                     <span className="inline-block px-3 py-1 text-xs font-semibold text-purple-600 bg-purple-50 rounded-full group-hover:bg-purple-100 transition-colors duration-300">
                       Cross-Platform
                     </span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -249,86 +249,86 @@ const Management = () => {
         </div>
 
         {/* Why Choose Us Section */}
-        <div className="mt-24 mb-16">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
-              Trusted by Leading Businesses
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Several leading businesses choose us as their Mobile App Development Services provider for seamless application development.
-            </p>
-          </div>
+<div className="mt-24 mb-16">
+  <div className="text-center mb-16">
+    <h2 className="text-4xl font-bold text-gray-800 mb-6">
+      Trusted by Leading Businesses
+    </h2>
+    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+      Several leading businesses choose us as their Mobile App Development Services provider for seamless application development.
+    </p>
+  </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Faster Response Time */}
-            <div className="group p-8 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 mb-6 rounded-lg bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-300">
-                <FaBolt className="text-blue-600 text-2xl group-hover:text-blue-700 transition-colors duration-300" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">Lightning Fast Performance</h3>
-              <p className="text-gray-600 mb-4">
-                Apps with faster response time – consistently below 3.4 seconds for optimal user experience.
-              </p>
-              <div className="flex items-center text-sm text-blue-600 font-medium">
-                <span>Learn more</span>
-                <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-              </div>
-            </div>
-
-            {/* Brand Differentiation */}
-            <div className="group p-8 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 mb-6 rounded-lg bg-purple-50 flex items-center justify-center group-hover:bg-purple-100 transition-colors duration-300">
-                <FaStar className="text-purple-600 text-2xl group-hover:text-purple-700 transition-colors duration-300" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">Brand Excellence</h3>
-              <p className="text-gray-600 mb-4">
-                Sharp focus on business needs and brand differentiation to make your app stand out.
-              </p>
-              <div className="flex items-center text-sm text-purple-600 font-medium">
-                <span>Learn more</span>
-                <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-              </div>
-            </div>
-
-            {/* Seamless UX */}
-            <div className="group p-8 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 mb-6 rounded-lg bg-green-50 flex items-center justify-center group-hover:bg-green-100 transition-colors duration-300">
-                <FaUserCheck className="text-green-600 text-2xl group-hover:text-green-700 transition-colors duration-300" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">Flawless Experience</h3>
-              <p className="text-gray-600 mb-4">
-                Seamless UX that boosts brand reputation and keeps users engaged.
-              </p>
-              <div className="flex items-center text-sm text-green-600 font-medium">
-                <span>Learn more</span>
-                <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-              </div>
-            </div>
-
-            {/* 24/7 Support */}
-            <div className="group p-8 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 mb-6 rounded-lg bg-orange-50 flex items-center justify-center group-hover:bg-orange-100 transition-colors duration-300">
-                <FaHeadset className="text-orange-600 text-2xl group-hover:text-orange-700 transition-colors duration-300" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">Reliable Support</h3>
-              <p className="text-gray-600 mb-4">
-                24/7 dedicated QA and app support to ensure uninterrupted performance.
-              </p>
-              <div className="flex items-center text-sm text-orange-600 font-medium">
-                <span>Learn more</span>
-                <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-              </div>
-            </div>
-          </div>
-
-          {/* Compliance Badge */}
-          <div className="mt-16 text-center">
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gray-50 border border-gray-200">
-              <FaShieldAlt className="text-gray-600 mr-3" />
-              <span className="font-medium text-gray-700">Maintaining industry compliance standards across all applications</span>
-            </div>
-          </div>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {/* Card Template - Apply this structure to all cards */}
+    <div className="group flex flex-col p-8 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 h-full">
+      <div className="w-16 h-16 mb-6 rounded-lg bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-300">
+        <FaBolt className="text-blue-600 text-2xl group-hover:text-blue-700 transition-colors duration-300" />
+      </div>
+      <h3 className="text-xl font-bold text-gray-800 mb-3"> Fast Performance</h3>
+      <p className="text-gray-600 mb-6 flex-grow">
+        Apps with faster response time – consistently below 3.4 seconds for optimal user experience.
+      </p>
+      <div className="mt-auto">
+        <div className="flex items-center text-sm text-blue-600 font-medium">
+          <span>Learn more</span>
+          <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
         </div>
+      </div>
+    </div>
+
+    {/* Brand Differentiation */}
+    <div className="group flex flex-col p-8 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 h-full">
+      <div className="w-16 h-16 mb-6 rounded-lg bg-purple-50 flex items-center justify-center group-hover:bg-purple-100 transition-colors duration-300">
+        <FaStar className="text-purple-600 text-2xl group-hover:text-purple-700 transition-colors duration-300" />
+      </div>
+      <h3 className="text-xl font-bold text-gray-800 mb-3">Brand Excellence</h3>
+      <p className="text-gray-600 mb-6 flex-grow">
+        Sharp focus on business needs and brand differentiation to make your app stand out.
+      </p>
+      <div className="mt-auto">
+        <div className="flex items-center text-sm text-purple-600 font-medium">
+          <span>Learn more</span>
+          <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+        </div>
+      </div>
+    </div>
+
+    {/* Seamless UX */}
+    <div className="group flex flex-col p-8 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 h-full">
+      <div className="w-16 h-16 mb-6 rounded-lg bg-green-50 flex items-center justify-center group-hover:bg-green-100 transition-colors duration-300">
+        <FaUserCheck className="text-green-600 text-2xl group-hover:text-green-700 transition-colors duration-300" />
+      </div>
+      <h3 className="text-xl font-bold text-gray-800 mb-3">Perfect Flow</h3>
+      <p className="text-gray-600 mb-6 flex-grow">
+        Seamless UX that boosts brand reputation, keeps users engaged, fosters credibility growth.
+      </p>
+      <div className="mt-auto">
+        <div className="flex items-center text-sm text-green-600 font-medium">
+          <span>Learn more</span>
+          <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+        </div>
+      </div>
+    </div>
+
+    {/* 24/7 Support */}
+    <div className="group flex flex-col p-8 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 h-full">
+      <div className="w-16 h-16 mb-6 rounded-lg bg-orange-50 flex items-center justify-center group-hover:bg-orange-100 transition-colors duration-300">
+        <FaHeadset className="text-orange-600 text-2xl group-hover:text-orange-700 transition-colors duration-300" />
+      </div>
+      <h3 className="text-xl font-bold text-gray-800 mb-3">Reliable Support</h3>
+      <p className="text-gray-600 mb-6 flex-grow">
+        24/7 dedicated QA and app support to ensure uninterrupted performance.
+      </p>
+      <div className="mt-auto">
+        <div className="flex items-center text-sm text-orange-600 font-medium">
+          <span>Learn more</span>
+          <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       </div>
     </div>
   );
