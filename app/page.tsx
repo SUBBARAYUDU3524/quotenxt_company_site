@@ -1,5 +1,5 @@
 "use client"
-import { motion, useMotionTemplate, useMotionValue, animate } from "framer-motion"
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion"
 import { FiMail, FiLock, FiEye, FiEyeOff, FiLogIn, FiUserPlus } from "react-icons/fi"
 import { useEffect, useState } from "react"
 import Link from "next/link"
@@ -26,40 +26,6 @@ const LoginPage = () => {
       size: Math.random() * 4 + 2
     }))
     setParticles(newParticles)
-
-    // Animate particles
-    newParticles.forEach((_, i) => {
-      animate(
-        particles[i]?.x || 0,
-        Math.random() * 100,
-        {
-          duration: Math.random() * 20 + 10,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut"
-        },
-        (latest) => {
-          setParticles(prev => prev.map(p => 
-            p.id === i ? { ...p, x: latest } : p
-          ))
-        }
-      )
-      animate(
-        particles[i]?.y || 0,
-        Math.random() * 100,
-        {
-          duration: Math.random() * 25 + 15,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut"
-        },
-        (latest) => {
-          setParticles(prev => prev.map(p => 
-            p.id === i ? { ...p, y: latest } : p
-          ))
-        }
-      )
-    })
   }, [])
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -93,19 +59,25 @@ const LoginPage = () => {
         <motion.div
           key={particle.id}
           className="absolute rounded-full bg-indigo-500/30 backdrop-blur-sm"
-          style={{
+          initial={{
             left: `${particle.x}%`,
             top: `${particle.y}%`,
-            width: `${particle.size}px`,
-            height: `${particle.size}px`,
+            opacity: 0.3
           }}
           animate={{
-            opacity: [0.3, 0.8, 0.3],
+            left: [`${particle.x}%`, `${Math.random() * 100}%`, `${particle.x}%`],
+            top: [`${particle.y}%`, `${Math.random() * 100}%`, `${particle.y}%`],
+            opacity: [0.3, 0.8, 0.3]
           }}
           transition={{
-            duration: Math.random() * 10 + 5,
+            duration: Math.random() * 15 + 10,
             repeat: Infinity,
+            repeatType: "reverse",
             ease: "easeInOut"
+          }}
+          style={{
+            width: `${particle.size}px`,
+            height: `${particle.size}px`,
           }}
         />
       ))}

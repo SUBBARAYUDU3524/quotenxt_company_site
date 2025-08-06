@@ -126,7 +126,7 @@ const WhoWeServeMain = (): ReactElement => {
         <motion.div
           initial="hidden"
           animate={controls}
-          variants={lineVariants}
+         
           className="absolute hidden md:block top-0 left-1/2 w-1 bg-gradient-to-b from-transparent via-gray-300 to-transparent"
           style={{ transform: 'translateX(-50%)' }}
         />
@@ -136,7 +136,7 @@ const WhoWeServeMain = (): ReactElement => {
           <motion.div
             initial="hidden"
             animate={controls}
-            variants={textVariants}
+         
             className={`w-full md:w-1/2 ${industry.position === 'right' ? 'md:pl-8' : 'md:pr-8'}`}
           >
             <motion.div 
@@ -167,7 +167,7 @@ const WhoWeServeMain = (): ReactElement => {
           <motion.div
             initial="hidden"
             animate={controls}
-            variants={imageVariants}
+            
             className="w-full md:w-1/2 mt-6 sm:mt-0"
           >
             <motion.div 
@@ -189,7 +189,7 @@ const WhoWeServeMain = (): ReactElement => {
         <motion.div
           initial="hidden"
           animate={controls}
-          variants={bottomLineVariants}
+        
           className="absolute -bottom-8 sm:-bottom-10 left-0 h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent"
         />
       </div>

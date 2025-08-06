@@ -36,7 +36,8 @@ export default function AutoRotatingTestimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState<'left'|'right'>('right');
   const [isHovered, setIsHovered] = useState(false);
-  const intervalRef = useRef<NodeJS.Timeout>();
+  // Fix: pass undefined to useRef so the type is NodeJS.Timeout | undefined
+  const intervalRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   // Auto-rotation logic
   const startRotation = () => {
@@ -143,8 +144,7 @@ export default function AutoRotatingTestimonials() {
           <AnimatePresence custom={direction} mode="wait">
             <motion.div
               key={testimonials[currentIndex].id}
-              custom={direction}
-              variants={variants}
+              custom={direction}           
               initial="enter"
               animate="center"
               exit="exit"
