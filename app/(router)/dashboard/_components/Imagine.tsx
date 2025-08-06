@@ -7,8 +7,8 @@ import { FiPlus, FiMinus, FiChevronRight } from 'react-icons/fi';
 import img from "../../../../public/assets/trust.jpg";
 
 const Imagine = () => {
-  // Set default open to 0 for the first FAQ open by default
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  // Allow activeIndex to be number or null
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const toggleAccordion = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
