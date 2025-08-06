@@ -19,11 +19,11 @@ const navLinks = [
 // Framer Motion variants
 const navLinkVariants = {
   initial: { opacity: 0, y: 10 },
-  animate: (i: number) => ({
+  animate: { 
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.07, type: 'spring', stiffness: 100 },
-  }),
+    transition: { type: 'spring', stiffness: 100 }
+  },
 };
 
 export default function Navbar() {
@@ -89,10 +89,10 @@ export default function Navbar() {
               return (
                 <motion.li
                   key={link.path}
-                  custom={i}
-                  variants={navLinkVariants}
+      
                   initial="initial"
                   animate="animate"
+                  transition={{ delay: i * 0.07 }}
                   className="relative"
                 >
                   <Link
