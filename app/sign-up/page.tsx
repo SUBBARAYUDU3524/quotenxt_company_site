@@ -1,8 +1,24 @@
 "use client"
-import { motion, useMotionTemplate, useMotionValue, animate } from "framer-motion"
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion"
 import { FiMail, FiLock, FiEye, FiEyeOff, FiUser, FiLogIn, FiArrowLeft } from "react-icons/fi"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useMemo } from "react"
 import Link from "next/link"
+
+const PARTICLE_COUNT = 30
+
+function getRandomParticles() {
+  return Array.from({ length: PARTICLE_COUNT }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 4 + 2,
+    xTo: Math.random() * 100,
+    yTo: Math.random() * 100,
+    durationX: Math.random() * 20 + 10,
+    durationY: Math.random() * 25 + 15,
+    opacityDuration: Math.random() * 10 + 5,
+  }))
+}
 
 const SignupPage = () => {
   const [name, setName] = useState("")
@@ -12,7 +28,6 @@ const SignupPage = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [particles, setParticles] = useState<Array<{id: number, x: number, y: number, size: number}>>([])
 
   // Animated mouse position effects
   const mouseX = useMotionValue(0)
@@ -20,50 +35,8 @@ const SignupPage = () => {
   const radius = useMotionValue(0)
   const background = useMotionTemplate`radial-gradient(${radius}px circle at ${mouseX}px ${mouseY}px, rgba(99, 102, 241, 0.15), transparent 80%)`
 
-  // Create floating particles
-  useEffect(() => {
-    const newParticles = Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 4 + 2
-    }))
-    setParticles(newParticles)
-
-    // Animate particles
-    newParticles.forEach((_, i) => {
-      animate(
-        particles[i]?.x || 0,
-        Math.random() * 100,
-        {
-          duration: Math.random() * 20 + 10,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut"
-        },
-        (latest) => {
-          setParticles(prev => prev.map(p => 
-            p.id === i ? { ...p, x: latest } : p
-          ))
-        }
-      )
-      animate(
-        particles[i]?.y || 0,
-        Math.random() * 100,
-        {
-          duration: Math.random() * 25 + 15,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut"
-        },
-        (latest) => {
-          setParticles(prev => prev.map(p => 
-            p.id === i ? { ...p, y: latest } : p
-          ))
-        }
-      )
-    })
-  }, [])
+  // Memoize particles so they don't re-randomize on each render
+  const particles = useMemo(() => getRandomParticles(), [])
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const { clientX, clientY, currentTarget } = e
@@ -97,18 +70,38 @@ const SignupPage = () => {
           key={particle.id}
           className="absolute rounded-full bg-indigo-500/30 backdrop-blur-sm"
           style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
             width: `${particle.size}px`,
             height: `${particle.size}px`,
           }}
+          initial={{
+            left: `${particle.x}%`,
+            top: `${particle.y}%`,
+            opacity: 0.3
+          }}
           animate={{
+            left: [`${particle.x}%`, `${particle.xTo}%`, `${particle.x}%`],
+            top: [`${particle.y}%`, `${particle.yTo}%`, `${particle.y}%`],
             opacity: [0.3, 0.8, 0.3],
           }}
           transition={{
-            duration: Math.random() * 10 + 5,
-            repeat: Infinity,
-            ease: "easeInOut"
+            left: {
+              duration: particle.durationX,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut"
+            },
+            top: {
+              duration: particle.durationY,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut"
+            },
+            opacity: {
+              duration: particle.opacityDuration,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut"
+            }
           }}
         />
       ))}
