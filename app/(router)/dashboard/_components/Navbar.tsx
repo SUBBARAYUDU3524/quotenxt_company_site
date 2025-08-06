@@ -83,8 +83,6 @@ export default function Navbar() {
           {/* Desktop Navigation - Premium Links */}
           <motion.ul
             className="hidden md:flex items-center space-x-1"
-            initial="initial"
-            animate="animate"
           >
             {navLinks.map((link, i) => {
               const isActive = pathname === link.path;
@@ -93,6 +91,8 @@ export default function Navbar() {
                   key={link.path}
                   custom={i}
                   variants={navLinkVariants}
+                  initial="initial"
+                  animate="animate"
                   className="relative"
                 >
                   <Link
