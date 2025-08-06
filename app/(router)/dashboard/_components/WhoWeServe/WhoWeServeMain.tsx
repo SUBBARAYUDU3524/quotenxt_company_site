@@ -218,7 +218,7 @@ const WhoWeServeMain = (): ReactElement => {
               Industry-Specific <span className="text-blue-600">Solutions</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
-              Tailored digital transformation for your industry's unique challenges
+               Tailored digital transformation for your industry&apos;s unique challenges
             </p>
           </motion.div>
 

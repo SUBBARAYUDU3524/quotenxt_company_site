@@ -45,9 +45,10 @@ const Footer = (): ReactElement => {
               className="w-36 h-auto object-contain"
             />
           </div>
-          <p className="text-xs leading-relaxed text-gray-300 group-hover:text-gray-100 transition-colors duration-500">
-            QuoteNXT's mission is to provide a technology bridge that leads to prosperity in business for everyone — from the solopreneur with big dreams to the household name large-corporation.
-          </p>
+         <p className="text-xs leading-relaxed text-gray-300 group-hover:text-gray-100 transition-colors duration-500">
+  QuoteNXT&apos;s mission is to provide a technology bridge that leads to prosperity in business for everyone — from the solopreneur with big dreams to the household name large-corporation.
+</p>
+
           <div className="flex gap-3 mt-6">
             {socialIcons.map((social, index) => (
               <a

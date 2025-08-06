@@ -18,7 +18,7 @@ const ContactHeader = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 sm:py-32 lg:px-8 lg:pl-90 lg:py-40 text-center">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-800 mb-6 leading-tight">
-          <span className="block">Let's Connect</span>
+          <span className="block">Let&apos;s Connect</span>
           <span className="text-blue-600">Build the Future Together</span>
         </h1>
 

@@ -169,9 +169,9 @@ const VISM = () => {
             <h3 className="text-2xl font-bold text-gray-800 mb-4">
               Ready to Transform Your Sales Process?
             </h3>
-            <p className="text-gray-600 mb-6">
-              Our VISM model delivers results with measurable ROI. Let's discuss how we can help your business grow.
-            </p>
+           <p className="text-gray-600 mb-6">
+  Our VISM model delivers results with measurable ROI. Let&apos;s discuss how we can help your business grow.
+</p>
             <button className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
               Get Started
             </button>

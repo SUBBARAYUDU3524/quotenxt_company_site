@@ -325,8 +325,8 @@ const JobsList = () => {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <h3 className="text-xl font-medium text-gray-700 mb-4">Don't see your dream job?</h3>
-          <p className="text-gray-500 mb-6">We're always looking for talented people. Send us your resume!</p>
+          <h3 className="text-xl font-medium text-gray-700 mb-4"> Don&apos;t see your dream job?</h3>
+          <p className="text-gray-500 mb-6"> We&apos;re always looking for talented people. Send us your resume!</p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

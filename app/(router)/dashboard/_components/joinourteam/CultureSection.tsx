@@ -71,7 +71,7 @@ const CultureSection = () => {
             Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Culture</span>
           </motion.h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We've built an environment where exceptional people can do their best work
+             We&apos;ve built an environment where exceptional people can do their best work
           </p>
         </motion.div>
 

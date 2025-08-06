@@ -168,9 +168,10 @@ export default function AutoRotatingTestimonials() {
                   ))}
                 </div>
 
-                <blockquote className="text-xl md:text-2xl font-medium text-gray-800 mb-8 max-w-3xl">
-                  "{testimonials[currentIndex].quote}"
-                </blockquote>
+               <blockquote className="text-xl md:text-2xl font-medium text-gray-800 mb-8 max-w-3xl">
+  &ldquo;{testimonials[currentIndex].quote}&rdquo;
+</blockquote>
+
 
                 <div className="flex items-center">
                   <img 

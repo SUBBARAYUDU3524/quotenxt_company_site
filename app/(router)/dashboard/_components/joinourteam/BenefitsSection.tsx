@@ -92,10 +92,10 @@ const BenefitsSection = () => {
           className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-12 text-center"
         >
           <h3 className="text-3xl font-bold text-gray-900 mb-4">
-            Don't see your perfect role?
+              Don&apos;t see your perfect role?
           </h3>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-            We're always looking for exceptional talent. Reach out and tell us how you can contribute!
+           We&apos;re always looking for exceptional talent. Reach out and tell us how you can contribute!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a

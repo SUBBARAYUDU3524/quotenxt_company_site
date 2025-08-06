@@ -96,9 +96,9 @@ const ITConsulting = () => {
           <div className="flex justify-center mb-8">
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           </div>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            As a software consulting company, we help create optimal digital environments aligned with technical capacity, business requirements, employees' needs, and customers' expectations.
-          </p>
+         <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+  As a software consulting company, we help create optimal digital environments aligned with technical capacity, business requirements, employees&apos; needs, and customers&apos; expectations.
+</p>
         </motion.div>
 
         {/* Consulting Services */}
@@ -254,7 +254,7 @@ const ITConsulting = () => {
                 Ready to Transform Your IT Infrastructure?
               </h3>
               <p className="text-gray-600 mb-6">
-                Our consulting services deliver measurable results with clear ROI. Let's discuss how we can help your business grow.
+                Our consulting services deliver measurable results with clear ROI. Let&apos;s discuss how we can help your business grow.
               </p>
               <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:from-blue-600 hover:to-purple-600">
                 Get Started

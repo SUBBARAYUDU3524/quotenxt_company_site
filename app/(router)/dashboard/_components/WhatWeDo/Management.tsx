@@ -63,10 +63,7 @@ const Management = () => {
             
             <div className="w-full md:w-1/2">
               <p className="text-lg mb-6 text-gray-600">
-                We build the process of managing an organization's employees which includes hiring, training, scheduling, 
-                assigning tasks and evaluating performance. It is a central component of human resource management and is 
-                used to maximize efficiency and productivity by making sure the right number of employees are in the 
-                right place at the right time.
+                We build solutions for managing an organization&apos;s employees, which includes hiring, training, scheduling, assigning tasks, and evaluating performance. This is a central component of human resource management and is used to maximize efficiency and productivity by ensuring the right number of employees are in the right place at the right time.
               </p>
               
               <div className="flex flex-wrap gap-4 mt-8">

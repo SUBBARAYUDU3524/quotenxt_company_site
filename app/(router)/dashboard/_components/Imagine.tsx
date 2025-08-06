@@ -175,7 +175,7 @@ const Imagine = () => {
                 className="bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-xl max-w-md"
               >
                 <h3 className="text-xl font-bold text-blue-700 mb-2">
-                  Let's Build Your Vision
+                   Let&apos;s Build Your Vision
                 </h3>
                 <p className="text-gray-600">
                   Our team of experts is ready to transform your ideas into
