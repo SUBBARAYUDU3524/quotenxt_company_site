@@ -57,7 +57,7 @@ export default function Navbar() {
             className="flex-shrink-0 flex items-center"
           >
             <Link 
-              href="/" 
+              href="/dashboard" 
               aria-label="Home" 
               className="flex items-center group relative"
             >
