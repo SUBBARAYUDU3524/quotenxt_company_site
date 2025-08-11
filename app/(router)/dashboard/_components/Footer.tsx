@@ -1,34 +1,35 @@
 import { FaLinkedin, FaInstagram, FaArrowRight, FaPaperPlane, FaPhone, FaEnvelope, FaTwitter, FaYoutube } from 'react-icons/fa';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ReactElement } from 'react';
 
 interface FooterLink {
   text: string;
+  href: string;
   icon?: ReactElement;
 }
 
 const Footer = (): ReactElement => {
   // Footer data
   const quickLinks: FooterLink[] = [
-    { text: 'What We Do' },
-    { text: 'Who We Serve' },
-    { text: 'Our Approach' },
-    { text: 'Case Studies' },
-    { text: 'Contact' }
+    { text: 'What We Do', href: '/dashboard/what-we-do' },
+    { text: 'Who We Serve', href: '/dashboard/who-we-serve' },
+    { text: 'Join Our Team', href: '/dashboard/join-our-team' },
+    { text: 'Contact', href: '/dashboard/contact-us' }
   ];
 
   const joinLinks: FooterLink[] = [
-    { text: 'Careers' },
-    { text: 'Job Board' },
-    { text: 'Internships' },
-    { text: 'Referrals' }
+    { text: 'Careers', href: '/careers' },
+    { text: 'Job Board', href: '/careers/jobs' },
+    { text: 'Internships', href: '/careers/internships' },
+    { text: 'Referrals', href: '/careers/referrals' }
   ];
 
   const socialIcons = [
-    { icon: <FaLinkedin size={14} />, bg: 'bg-[#0077b5] hover:bg-[#006097]' },
-    { icon: <FaInstagram size={14} />, bg: 'bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-90' },
-    { icon: <FaTwitter size={14} />, bg: 'bg-[#1DA1F2] hover:bg-[#1991db]' },
-    { icon: <FaYoutube size={14} />, bg: 'bg-[#FF0000] hover:bg-[#cc0000]' }
+    { icon: <FaLinkedin size={14} />, bg: 'bg-[#0077b5] hover:bg-[#006097]', href: 'https://linkedin.com/company/quotenxt' },
+    { icon: <FaInstagram size={14} />, bg: 'bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-90', href: 'https://instagram.com/quotenxt' },
+    { icon: <FaTwitter size={14} />, bg: 'bg-[#1DA1F2] hover:bg-[#1991db]', href: 'https://twitter.com/quotenxt' },
+    { icon: <FaYoutube size={14} />, bg: 'bg-[#FF0000] hover:bg-[#cc0000]', href: 'https://youtube.com/@quotenxt' }
   ];
 
   return (
@@ -45,15 +46,16 @@ const Footer = (): ReactElement => {
               className="w-36 h-auto object-contain"
             />
           </div>
-         <p className="text-xs leading-relaxed text-gray-300 group-hover:text-gray-100 transition-colors duration-500">
-  QuoteNXT&apos;s mission is to provide a technology bridge that leads to prosperity in business for everyone — from the solopreneur with big dreams to the household name large-corporation.
-</p>
-
+          <p className="text-xs leading-relaxed text-gray-300 group-hover:text-gray-100 transition-colors duration-500">
+            QuoteNXT&apos;s mission is to provide a technology bridge that leads to prosperity in business for everyone — from the solopreneur with big dreams to the household name large-corporation.
+          </p>
           <div className="flex gap-3 mt-6">
             {socialIcons.map((social, index) => (
               <a
                 key={index}
-                href="#"
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`${social.bg} p-2 rounded-full text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
               >
                 {social.icon}
@@ -116,7 +118,9 @@ const Footer = (): ReactElement => {
                 className="flex items-center gap-2 text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-1.5 cursor-pointer text-sm"
               >
                 <FaArrowRight className="text-amber-400 text-xs transition-all duration-300 group-hover:rotate-45" />
-                <span>{link.text}</span>
+                <Link href={link.href} className="hover:text-white transition-colors duration-300">
+                  {link.text}
+                </Link>
               </li>
             ))}
           </ul>
@@ -137,7 +141,9 @@ const Footer = (): ReactElement => {
                 className="flex items-center gap-2 text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-1.5 cursor-pointer text-sm"
               >
                 <FaArrowRight className="text-amber-400 text-xs transition-all duration-300 group-hover:rotate-45" />
-                <span>{link.text}</span>
+                <Link href={link.href} className="hover:text-white transition-colors duration-300">
+                  {link.text}
+                </Link>
               </li>
             ))}
           </ul>
@@ -176,9 +182,9 @@ const Footer = (): ReactElement => {
               Copyright © {new Date().getFullYear()} QUOTENXT | All rights reserved
             </div>
             <div className="flex gap-4">
-              <a href="#" className="hover:text-amber-400 transition-colors duration-300 text-xs">Privacy Policy</a>
-              <a href="#" className="hover:text-amber-400 transition-colors duration-300 text-xs">Terms of Service</a>
-              <a href="#" className="hover:text-amber-400 transition-colors duration-300 text-xs">Cookies</a>
+              <Link href="/privacy-policy" className="hover:text-amber-400 transition-colors duration-300 text-xs">Privacy Policy</Link>
+              <Link href="/terms-of-service" className="hover:text-amber-400 transition-colors duration-300 text-xs">Terms of Service</Link>
+              <Link href="/cookies" className="hover:text-amber-400 transition-colors duration-300 text-xs">Cookies</Link>
             </div>
           </div>
         </div>

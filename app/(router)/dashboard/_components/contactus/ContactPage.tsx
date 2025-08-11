@@ -95,7 +95,7 @@ const ContactForm = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-500 mb-1">Executive Inquiries</h4>
-                    <p className="text-gray-800">executive@company.com</p>
+                    <p className="text-gray-800">info@quotenxt.com</p>
                   </div>
                 </div>
 
@@ -105,17 +105,22 @@ const ContactForm = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-500 mb-1">Office</h4>
-                    <p className="text-gray-800">+1 (212) 555-0100</p>
+                    <p className="text-gray-800">+91 8978776121</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors duration-200">
+                <div className="flex items-start gap-4 p-1 hover:bg-gray-50 rounded-lg transition-colors duration-200">
                   <div className="mt-1">
                     <FiMapPin className="h-5 w-5 text-gray-500" />
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-500 mb-1">Headquarters</h4>
-                    <p className="text-gray-800">350 Fifth Avenue<br />New York, NY 10118</p>
+                    <p className="text-gray-800">
+  12A04, 13th Floor, Manjeera Trinity Corporate,<br />
+  JNTU-Hitech City Road, KPHB,<br />
+  Beside Lulu mall, Hyderabad
+</p>
+
                   </div>
                 </div>
 
@@ -194,7 +199,7 @@ const ContactForm = () => {
                         onFocus={() => handleFocus('name')}
                         onBlur={handleBlur}
                         className={`pl-10 pr-4 py-3 w-full border ${activeField === 'name' ? 'border-gray-400' : 'border-gray-200'} rounded-lg focus:ring-1 focus:ring-gray-400 bg-white text-gray-800 placeholder-gray-400 transition-all`}
-                        placeholder="John Smith"
+                        placeholder="Enter Your Full Name..."
                       />
                     </div>
                   </div>
@@ -218,7 +223,7 @@ const ContactForm = () => {
                         onFocus={() => handleFocus('email')}
                         onBlur={handleBlur}
                         className={`pl-10 pr-4 py-3 w-full border ${activeField === 'email' ? 'border-gray-400' : 'border-gray-200'} rounded-lg focus:ring-1 focus:ring-gray-400 bg-white text-gray-800 placeholder-gray-400 transition-all`}
-                        placeholder="john.smith@company.com"
+                        placeholder="Enter Your Email..."
                       />
                     </div>
                   </div>
@@ -241,7 +246,7 @@ const ContactForm = () => {
                         onFocus={() => handleFocus('company')}
                         onBlur={handleBlur}
                         className={`pl-10 pr-4 py-3 w-full border ${activeField === 'company' ? 'border-gray-400' : 'border-gray-200'} rounded-lg focus:ring-1 focus:ring-gray-400 bg-white text-gray-800 placeholder-gray-400 transition-all`}
-                        placeholder="Acme Corporation"
+                        placeholder="Enter Your Company name"
                       />
                     </div>
                   </div>
@@ -249,7 +254,7 @@ const ContactForm = () => {
                   {/* Phone */}
                   <div className="relative">
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                      Phone
+                      Phone *
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -264,7 +269,7 @@ const ContactForm = () => {
                         onFocus={() => handleFocus('phone')}
                         onBlur={handleBlur}
                         className={`pl-10 pr-4 py-3 w-full border ${activeField === 'phone' ? 'border-gray-400' : 'border-gray-200'} rounded-lg focus:ring-1 focus:ring-gray-400 bg-white text-gray-800 placeholder-gray-400 transition-all`}
-                        placeholder="+1 (555) 123-4567"
+                        placeholder="Enter Your Mobile Num"
                       />
                     </div>
                   </div>
