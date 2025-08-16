@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiArrowRight, FiSmile, FiUsers, FiAward, FiCoffee, FiX } from 'react-icons/fi'
 import { useState } from 'react'
-import employee from "../../../../../public/assets/Manufacture.jpg"
+import employee from "../../../public/assets/Manufacture.jpg"
 
 const LifeAtCompany = () => {
   // Using the imported employee image for all positions

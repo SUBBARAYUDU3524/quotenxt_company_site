@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FiArrowRight } from 'react-icons/fi';
-import joinHeroBg from "../../../../../public/assets/team.jpg"
+import joinHeroBg from "../../../public/assets/team.jpg"
 
 const JoinHero = () => {
   return (

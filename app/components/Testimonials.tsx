@@ -32,7 +32,7 @@ const testimonials = [
   },
 ];
 
-export default function AutoRotatingTestimonials() {
+export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState<'left'|'right'>('right');
   const [isHovered, setIsHovered] = useState(false);

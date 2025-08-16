@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 
 
-import JoinHero from '../_components/joinourteam/JoinHero';
-import CultureSection from '../_components/joinourteam/CultureSection';
-import LifeAtCompany from '../_components/joinourteam/LifeAtCompany';
-import JobsList from '../_components/joinourteam/JobsList';
-import BenefitsSection from '../_components/joinourteam/BenefitsSection';
+import JoinHero from '../components/joinourteam/JoinHero';
+import CultureSection from '../components/joinourteam/CultureSection';
+import LifeAtCompany from '../components/joinourteam/LifeAtCompany';
+import JobsList from '../components/joinourteam/JobsList';
+import BenefitsSection from '../components/joinourteam/BenefitsSection';
 
 export const metadata: Metadata = {
   title: "Our Services | What We Do",

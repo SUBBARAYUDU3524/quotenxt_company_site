@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
-import ServicesHeader from "../_components/WhatWeDo/Header";
-import Whatwedo from '../_components/WhatWeDo/Whatwedo';
-import SalesforceConsulting from '../_components/WhatWeDo/SalesforceConsulting';
-import Management from '../_components/WhatWeDo/Management';
-import WebDevelopmentServices from '../_components/WhatWeDo/WebDev';
-import VISM from '../_components/WhatWeDo/VISM';
-import ITConsulting from '../_components/WhatWeDo/ITConsulting';
+import ServicesHeader from "../components/WhatWeDo/Header";
+import Whatwedo from '../components/WhatWeDo/Whatwedo';
+import SalesforceConsulting from '../components/WhatWeDo/SalesforceConsulting';
+import Management from '../components/WhatWeDo/Management';
+import WebDevelopmentServices from '../components/WhatWeDo/WebDev';
+import VISM from '../components/WhatWeDo/VISM';
+import ITConsulting from '../components/WhatWeDo/ITConsulting';
 
 export const metadata: Metadata = {
   title: "Our Services | What We Do",

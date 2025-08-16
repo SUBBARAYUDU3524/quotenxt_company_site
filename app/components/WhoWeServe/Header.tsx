@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import whoweserve from "../../../../../public/assets/WhoWeServe.jpg"
+import whoweserve from "../../../public/assets/WhoWeServe.jpg"
 
 const WhoWeServeHeader = () => {
   return (

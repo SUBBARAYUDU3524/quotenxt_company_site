@@ -3,8 +3,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
-import mission from "../../../../public/assets/mission.jpg";
-import logo from "../../../../public/assets/logo.jpg"
+import mission from "../../public/assets/mission.jpg";
+import logo from "../../public/assets/logo.jpg"
 
 const TABS = [
   { key: 'mission', label: 'Our Mission' },

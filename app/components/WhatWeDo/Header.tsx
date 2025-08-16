@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import services from "../../../../../public/assets/services.jpg";
+import services from "../../../public/assets/services.jpg";
 
 const ServicesHeader = () => {
   return (

@@ -9,11 +9,11 @@ import { FiMenu, FiX } from 'react-icons/fi';
 
 // Nav links data
 const navLinks = [
-  { name: 'Home', path: '/dashboard' },
-  { name: 'What We Do', path: '/dashboard/what-we-do' },
-  { name: 'Who We Serve', path: '/dashboard/who-we-serve' },
-  { name: 'Join Our Team', path: '/dashboard/join-our-team' },
-  { name: 'Contact Us', path: '/dashboard/contact-us' },
+  { name: 'Home', path: '/' },
+  { name: 'What We Do', path: '/what-we-do' },
+  { name: 'Who We Serve', path: '/who-we-serve' },
+  { name: 'Join Our Team', path: '/join-our-team' },
+  { name: 'Contact Us', path: '/contact-us' },
 ];
 
 // Framer Motion variants

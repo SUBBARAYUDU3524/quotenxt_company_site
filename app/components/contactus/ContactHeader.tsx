@@ -1,11 +1,11 @@
 import Image from "next/image";
-import contact from "../../../../../public/assets/contact2.jpg";
+import contact from "../../../public/assets/contact2.jpg";
 
 const ContactHeader = () => {
   return (
     <header className="relative bg-white overflow-hidden">
       {/* Background image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 hidden lg:block">
         <Image
           src={contact}
           alt="Contact our team"

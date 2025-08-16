@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
 import { FiPlus, FiMinus, FiChevronRight } from 'react-icons/fi';
-import img from "../../../../public/assets/trust.jpg";
+import img from "../../public/assets/trust.jpg";
 
 const Imagine = () => {
   // Allow activeIndex to be number or null

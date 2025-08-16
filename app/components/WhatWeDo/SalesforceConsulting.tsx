@@ -3,7 +3,12 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
-import salescloud from "../../../../../public/assets/salescloud.jpg";
+import salescloud from "../../../public/assets/salescloud.jpg";
+import servicecloud from "../../../public/assets/servicecloud.png";
+import marketingcloud from "../../../public/assets/marketingcloud.jpg";
+import communitycloud from "../../../public/assets/communitycolud.png";
+import cpq from "../../../public/assets/cpq.jpg";
+import Lightening from "../../../public/assets/lightening.jpg";
 
 const SalesforceConsulting = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -17,19 +22,19 @@ const SalesforceConsulting = () => {
     },
     {
       title: 'Service Cloud',
-      icon: '/icons/service-cloud.png',
+      icon: servicecloud,
       description: 'We set up an omnichannel customer experience platform based on Salesforce Service Cloud that is tailored to your support agents needs, helping them efficiently solve cases and incidents, access the knowledge base faster, and automate case routing.',
       highlight: 'Reduce resolution time by 40%'
     },
     {
       title: 'Marketing Cloud',
-      icon: '/icons/marketing-cloud.png',
+      icon: marketingcloud,
       description: 'Our team implements and configures this marketing automation tool to enable companies to personalize and partially automate customer interactions across channels, craft outstanding marketing campaigns, and gather granular customer insights for further analysis.',
       highlight: 'Increase engagement by 25%'
     },
     {
       title: 'Community Cloud',
-      icon: '/icons/community-cloud.png',
+      icon: communitycloud,
       description: 'Based on Salesforces Community Cloud, we create a branded hub for companies to engage and communicate with their customers, partners, or employees, building a strong community.',
       highlight: 'Grow community by 3x'
     }
@@ -43,12 +48,12 @@ const SalesforceConsulting = () => {
     },
     {
       title: 'CPQ Salesforce',
-      icon: '/icons/cpq-salesforce.png',
+      icon:cpq,
       description: 'We help companies implement and tap into all useful capabilities of CPQ Salesforce to enable their sales agents to provide accurate pricing for various product configurations and quickly generate quotes to streamline the selling process.'
     },
     {
       title: 'Lightning Platform',
-      icon: '/icons/lightning-platform.png',
+      icon: Lightening,
       description: 'We help to design your product and enchnace user experinces. With lightning Framework we serve you the best UI/ UX and Package on sales platform. Our expert will design your software on cloud platform.'
     }
   ];

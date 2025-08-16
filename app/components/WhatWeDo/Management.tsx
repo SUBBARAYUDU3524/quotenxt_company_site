@@ -18,9 +18,9 @@ import {
   FaBolt,
   FaStar
 } from 'react-icons/fa';
-import mobile from "../../../../../public/assets/mobile.jpg"
-import WorkForceManagement from "../../../../../public/assets/Work_Force_Management.jpg"
-import WebDevlopment from "../../../../../public/assets/Mobile_Web_Development_Service_Management.jpg"
+import mobile from "../../../public/assets/mobile.jpg"
+import WorkForceManagement from "../../../public/assets/Work_Force_Management.jpg"
+import WebDevlopment from "../../../public/assets/Mobile_Web_Development_Service_Management.jpg"
 
 const Management = () => {
   const [isMobile, setIsMobile] = React.useState(false);

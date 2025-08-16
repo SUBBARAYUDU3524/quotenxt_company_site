@@ -4,10 +4,10 @@ import { motion, useAnimation, useInView } from 'framer-motion';
 import Head from 'next/head';
 import Image, { StaticImageData } from 'next/image';
 import { ReactElement, useEffect, useRef } from 'react';
-import Healthcare from "../../../../../public/assets/Healthcare.jpg"
-import Manufacture from "../../../../../public/assets/Manufacture.jpg"
-import BFSI from "../../../../../public/assets/BFSI.jpg"
-import Retail from "../../../../../public/assets/Retail.jpg"
+import Healthcare from "../../../public/assets/Healthcare.jpg"
+import Manufacture from "../../../public/assets/Manufacture.jpg"
+import BFSI from "../../../public/assets/BFSI.jpg"
+import Retail from "../../../public/assets/Retail.jpg"
 
 interface Industry {
   title: string;

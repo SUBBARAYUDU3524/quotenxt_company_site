@@ -2,12 +2,12 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import salesforce from "../../../../../public/assets/salesforce.jpg"     
-import devops from "../../../../../public/assets/devops.jpg"     
-import IT from "../../../../../public/assets/It.jpg"
-import VISM from "../../../../../public/assets/vism.jpg"
-import APP from "../../../../../public/assets/appdev.jpg"
-import Workflow from "../../../../../public/assets/workforcemanagement.jpg"
+import salesforce from "../../../public/assets/salesforce.jpg"     
+import devops from "../../../public/assets/devops.jpg"     
+import IT from "../../../public/assets/It.jpg"
+import VISM from "../../../public/assets/vism.jpg"
+import APP from "../../../public/assets/appdev.jpg"
+import Workflow from "../../../public/assets/workforcemanagement.jpg"
 
 const services = [
   {

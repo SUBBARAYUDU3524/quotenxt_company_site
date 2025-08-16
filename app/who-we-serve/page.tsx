@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import WhoWeServeHeader from '../_components/WhoWeServe/Header';
-import WhoWeServeMain from '../_components/WhoWeServe/WhoWeServeMain';
+import WhoWeServeHeader from '../components/WhoWeServe/Header';
+import WhoWeServeMain from '../components/WhoWeServe/WhoWeServeMain';
 
 
 export const metadata: Metadata = {
